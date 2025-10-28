@@ -26,7 +26,7 @@
             schema:
               type: array
               items:
-                $ref: '../components/schemas/Task.yaml#/Task'
+                $ref: '../components/schemas/Task.yaml'
 
   post:
     summary: Create a new task
@@ -37,17 +37,23 @@
       content:
         application/json:
           schema:
-            $ref: '../components/schemas/Task.yaml#/Task'
+            $ref: '../components/schemas/Task.yaml'
     responses:
       '201':
         description: Created
         content:
           application/json:
             schema:
-              $ref: '../components/schemas/Task.yaml#/Task'
+              $ref: '../components/schemas/Task.yaml'
       '400':
         description: Invalid input
         content:
           application/json:
             schema:
-              $ref: '../components/schemas/ValidationError.yaml#/ValidationError'
+              $ref: '../components/schemas/ValidationError.yaml'
+      '404':
+        description: Task not found
+        content:
+          application/json:
+            schema:
+              $ref: '../components/schemas/NotFoundError.yaml'
